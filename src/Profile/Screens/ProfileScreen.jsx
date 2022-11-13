@@ -5,36 +5,68 @@ import {
   Dimensions,
   Image,
   ScrollView,
-} from "react-native";
-import React from "react";
-import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useColorScheme } from "nativewind";
-import Tabs from "../../components/Tabs";
-import { useNavigation } from "@react-navigation/native";
-import { i18n } from "../../utils/localizations";
+} from "react-native"
+import React from "react"
+import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { useColorScheme } from "nativewind"
+import Tabs from "../../components/Tabs"
+import { useNavigation } from "@react-navigation/native"
+import { i18n } from "../../utils/localizations"
+import ItemSmall from "../../components/ItemSmall"
+import Animated, { FadeIn, FadeOut } from "react-native-reanimated"
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window")
 const ProfileScreen = () => {
-  const { colorScheme } = useColorScheme();
-
+  const { colorScheme } = useColorScheme()
+  const titles = [i18n.t("ready"), i18n.t("reviewing")]
   return (
     <SafeAreaView className="flex-1 dark:bg-brand-dark ">
       <ScrollView>
         {/* header */}
         <Header />
         <ImgSection />
-        <Tabs />
+        <Tabs
+          titles={titles}
+          titleWidth="45%"
+          screens={[<Ready />, <Reviewing />]}
+        />
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default ProfileScreen;
+const Ready = () => {
+  return (
+    <Animated.View
+      className="w-full"
+      entering={FadeIn.delay(20)}
+      exiting={FadeOut}
+    >
+      <ItemSmall width="100%" />
+      <ItemSmall width="100%" />
+      <ItemSmall width="100%" />
+    </Animated.View>
+  )
+}
+
+const Reviewing = () => {
+  return (
+    <Animated.View
+      className="w-full"
+      entering={FadeIn.delay(20)}
+      exiting={FadeOut}
+    >
+      <ItemSmall width="100%" />
+    </Animated.View>
+  )
+}
+
+export default ProfileScreen
 
 const Header = () => {
-  const { colorScheme } = useColorScheme();
-  const navigation = useNavigation();
+  const { colorScheme } = useColorScheme()
+  const navigation = useNavigation()
 
   return (
     <View className=" flex-row px-4 py-3 items-center justify-between">
@@ -59,11 +91,11 @@ const Header = () => {
         />
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
 const ImgSection = () => {
-  const { colorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme()
 
   return (
     <View
@@ -99,5 +131,5 @@ const ImgSection = () => {
         />
       </View>
     </View>
-  );
-};
+  )
+}

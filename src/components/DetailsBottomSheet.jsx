@@ -7,13 +7,14 @@ import SmallMap from "./SmallMap"
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet"
 import { useColorScheme } from "nativewind"
 import ListingAgent from "./ListingAgent"
+import Tabs from "./Tabs"
 
 const DetailsBottomSheet = () => {
   // hooks
   const sheetRef = useRef(null)
   const scrollRef = useRef(null)
 
-  const snapPoints = useMemo(() => ["50%", "80%"], [])
+  const snapPoints = useMemo(() => ["50%", "88%"], [])
 
   const [scrollTop, setScrollTop] = useState(false)
 
@@ -36,6 +37,7 @@ const DetailsBottomSheet = () => {
       // }
       style={{
         flex: 1,
+        zIndex: 100,
       }}
       backgroundStyle={{
         backgroundColor: colorScheme === "dark" ? "#131926" : "#fff",
@@ -89,6 +91,9 @@ const DetailsBottomSheet = () => {
           </Text>
         </View>
         <SmallMap />
+        <View className="flex-1">
+          <Tabs />
+        </View>
       </BottomSheetScrollView>
     </BottomSheet>
   )
