@@ -1,0 +1,20 @@
+export const placeholderData = [
+  {
+    _id: "",
+    owner: "",
+    title: "",
+    price: 0,
+    dealType: "",
+    propertyType: "",
+    location: "",
+    map: {},
+    city: "",
+    details: [],
+    desc: "",
+    curr: "",
+    status: "",
+    likes: [],
+    views: [],
+    contacts: [],
+  },
+];
