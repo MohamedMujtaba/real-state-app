@@ -96,7 +96,7 @@ const Header = () => {
 
 const ImgSection = () => {
   const { colorScheme } = useColorScheme()
-
+  const navigation = useNavigation()
   return (
     <View
       className=" w-full items-center justify-center"
@@ -129,6 +129,22 @@ const ImgSection = () => {
           size={22}
           color="#84cc16"
         />
+      </View>
+      <View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("balanceScreen")}
+          className="border-2 mt-1 py-3 px-8 rounded-md flex-row items-center border-white"
+          right
+        >
+          <Feather
+            name="dollar-sign"
+            size={24}
+            color={colorScheme === "dark" ? "#fff" : "#000"}
+          />
+          <Text className="text-lg font-semibold dark:text-white">
+            3,000,000,000
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   )

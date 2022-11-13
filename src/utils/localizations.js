@@ -1,4 +1,4 @@
-import { I18n } from "i18n-js";
+import { I18n } from "i18n-js"
 
 export const en = {
   location: "Location",
@@ -23,7 +23,14 @@ export const en = {
   support: "Support",
   helpCenter: "Help center",
   termsAndConditions: "Terms and conditions",
-};
+  balance: "Balance",
+  pound: "SD",
+  termsAndConditionsApply: "* Terms and conditions apply",
+  addBalance: "Add balance",
+  activity: "Activity",
+  withdrawnFromYourAccount: "Withdrawn from account",
+  addedToYourAccount: "Added to account",
+}
 export const ar = {
   location: "الموقع الحالي",
   search: "تبحث عن شئ معين ؟",
@@ -47,6 +54,13 @@ export const ar = {
   support: "المساعدة",
   helpCenter: "مركز المساعدة",
   termsAndConditions: "الأحكام والشروط",
-};
+  balance: "رصيدي",
+  pound: "جنية",
+  termsAndConditionsApply: "تطبق الشروط والاحكام *",
+  addBalance: "أضافة رصيد",
+  activity: "النشاطات",
+  withdrawnFromYourAccount: "تم سحب مبلغ من حسابك",
+  addedToYourAccount: "تم أضافة مبلغ الى حسابك",
+}
 
-export const i18n = new I18n({ en, ar });
+export const i18n = new I18n({ en, ar })

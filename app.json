@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "mj_dev_test",
     "name": "real-estate",
     "slug": "real-estate",
     "version": "1.0.0",
