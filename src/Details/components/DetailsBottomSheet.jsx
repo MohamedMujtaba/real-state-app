@@ -1,30 +1,24 @@
-import { View, Text, FlatList, TouchableOpacity } from "react-native"
-import React, { useMemo, useRef, useState, useEffect } from "react"
-import LocationIcon from "../utils/Icons/LocationIcon"
-import InfoTag from "./InfoTag"
-import Divider from "./Divider"
-import SmallMap from "./SmallMap"
-import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet"
-import { useColorScheme } from "nativewind"
-import ListingAgent from "./ListingAgent"
-import Tabs from "./Tabs"
+import { View, Text, FlatList } from "react-native";
+import React, { useMemo, useRef, useState } from "react";
+import LocationIcon from "../../utils/Icons/LocationIcon";
+import InfoTag from "../../components/InfoTag";
+import Divider from "../../components/Divider";
+import SmallMap from "../../components/SmallMap";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
+import { useColorScheme } from "nativewind";
+import ListingAgent from "../../components/ListingAgent";
+import Tabs from "../../components/Tabs";
 
 const DetailsBottomSheet = () => {
   // hooks
-  const sheetRef = useRef(null)
-  const scrollRef = useRef(null)
+  const sheetRef = useRef(null);
+  const scrollRef = useRef(null);
 
-  const snapPoints = useMemo(() => ["50%", "88%"], [])
+  const snapPoints = useMemo(() => ["50%", "88%"], []);
 
-  const [scrollTop, setScrollTop] = useState(false)
+  const [scrollTop, setScrollTop] = useState(false);
 
-  const { colorScheme } = useColorScheme()
-
-  // useEffect(() => {
-  //   if (scrollTop === 0) {
-  //     scrollRef.current.scrollTo({ x: 0, duration: 2000 })
-  //   }
-  // }, [scrollTop])
+  const { colorScheme } = useColorScheme();
 
   return (
     <BottomSheet
@@ -96,7 +90,7 @@ const DetailsBottomSheet = () => {
         </View>
       </BottomSheetScrollView>
     </BottomSheet>
-  )
-}
+  );
+};
 
-export default DetailsBottomSheet
+export default DetailsBottomSheet;

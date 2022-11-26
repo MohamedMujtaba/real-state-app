@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native"
+import { View, Text, TouchableOpacity } from "react-native";
 
 const DetailsActionArea = () => {
   return (
@@ -26,7 +26,7 @@ const DetailsActionArea = () => {
         <Text className="text-lg font-semibold text-white">Rent</Text>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default DetailsActionArea
+export default DetailsActionArea;

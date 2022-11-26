@@ -1,12 +1,12 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
-import React from "react"
-import { AntDesign, Ionicons } from "@expo/vector-icons"
-import { BlurView } from "expo-blur"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { useNavigation } from "@react-navigation/native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
 
 const DetailsHeader = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <BlurView
       intensity={20}
@@ -39,7 +39,7 @@ const DetailsHeader = () => {
         </TouchableOpacity>
       </SafeAreaView>
     </BlurView>
-  )
-}
+  );
+};
 
-export default DetailsHeader
+export default DetailsHeader;

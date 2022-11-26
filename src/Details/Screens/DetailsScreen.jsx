@@ -1,11 +1,12 @@
-import { View } from "react-native"
-import ImageSlider from "../../components/ImageSlider"
-import DetailsHeader from "../../components/DetailsHeader"
+import { View } from "react-native";
+import ImageSlider from "../../components/ImageSlider";
 
-import { BottomSheetModalProvider } from "@gorhom/bottom-sheet"
-import { GestureHandlerRootView } from "react-native-gesture-handler"
-import DetailsBottomSheet from "../../components/DetailsBottomSheet"
-import DetailsActionArea from "../../components/DetailsActionArea"
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import DetailsActionArea from "../components/DetailsActionArea";
+import DetailsBottomSheet from "../components/DetailsBottomSheet";
+import DetailsHeader from "../components/DetailsHeader";
+
 const DetailsScreen = () => {
   return (
     <GestureHandlerRootView className="flex-1 bg-white dark:bg-brand-dark">
@@ -20,7 +21,7 @@ const DetailsScreen = () => {
         <DetailsActionArea />
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
-  )
-}
+  );
+};
 
-export default DetailsScreen
+export default DetailsScreen;
