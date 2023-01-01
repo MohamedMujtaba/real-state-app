@@ -12,7 +12,7 @@ import { NumberFormat } from "../../utils/helpers";
 import { i18n } from "../../utils/localizations";
 const { width, height } = Dimensions.get("window");
 
-const BalanceSection = () => {
+const BalanceSection = ({ bottomSheetRef }) => {
   const { language } = useSelector((state) => state.lang);
   const { colorScheme } = useColorScheme();
   return (
@@ -46,6 +46,7 @@ const BalanceSection = () => {
           </Text>
         </View>
         <TouchableOpacity
+          onPress={() => bottomSheetRef.current.snapToIndex(0)}
           activeOpacity={0.9}
           className="w-full p-4 rounded-b-md bg-brand items-center justify-center flex-row"
         >
