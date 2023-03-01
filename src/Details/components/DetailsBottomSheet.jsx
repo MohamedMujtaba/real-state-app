@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import React, { useMemo, useRef, useState } from "react";
 import LocationIcon from "../../utils/Icons/LocationIcon";
 import InfoTag from "../../components/InfoTag";
@@ -8,6 +8,7 @@ import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { useColorScheme } from "nativewind";
 import ListingAgent from "../../components/ListingAgent";
 import Tabs from "../../components/Tabs";
+import { useNavigation } from "@react-navigation/native";
 
 const DetailsBottomSheet = () => {
   // hooks
@@ -19,7 +20,7 @@ const DetailsBottomSheet = () => {
   const [scrollTop, setScrollTop] = useState(false);
 
   const { colorScheme } = useColorScheme();
-
+  const navigation = useNavigation();
   return (
     <BottomSheet
       ref={sheetRef}
@@ -45,9 +46,20 @@ const DetailsBottomSheet = () => {
         // className="bg-red-600"
       >
         <View className="px-4 pb-4">
-          <Text className="text-2xl font-semibold dark:text-white">
-            Whitespace house
-          </Text>
+          <View className="flex-row  justify-between">
+            <Text className="text-2xl font-semibold dark:text-white w-[80%]">
+              Whitespace house
+            </Text>
+            <TouchableOpacity
+              className=""
+              onPress={() => navigation.navigate("Image360")}
+            >
+              <Image
+                className="w-12 h-12"
+                source={require("../../../assets/img/Icons/panorama.png")}
+              />
+            </TouchableOpacity>
+          </View>
           <View className="flex-row items-center mt-1">
             <LocationIcon fill="#94a3b8" />
             <Text className="text-lg font-semibold text-gray-400 ">

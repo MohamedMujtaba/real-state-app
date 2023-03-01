@@ -11,6 +11,8 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./Redux/store";
 import SwitchNavigation from "./Navigation/SwitchNavigation";
 import { useColorScheme } from "nativewind";
+import { i18n } from "./src/utils/localizations";
+import { useEffect } from "react";
 
 I18nManager.forceRTL(false);
 I18nManager.allowRTL(false);
@@ -21,19 +23,29 @@ TextInput.defaultProps.allowFontScaling = false;
 // i18n.locale = "ar";
 
 export default function App() {
-  const { colorScheme } = useColorScheme();
-
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <SafeAreaProvider>
-          <NavigationContainer
-            theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-          >
-            <SwitchNavigation />
-          </NavigationContainer>
-        </SafeAreaProvider>
+        <StatfullApp />
       </PersistGate>
     </Provider>
   );
 }
+
+const StatfullApp = () => {
+  const { colorScheme } = useColorScheme();
+  const { language } = useSelector((state) => state.lang);
+  i18n.enableFallback = true;
+  useEffect(() => {
+    i18n.locale = language;
+  }, [language]);
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer
+        theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+      >
+        <SwitchNavigation />
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+};

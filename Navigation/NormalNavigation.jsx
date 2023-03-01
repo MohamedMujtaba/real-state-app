@@ -1,16 +1,17 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { useColorScheme } from "nativewind"
-import { useEffect } from "react"
-import { useSelector } from "react-redux"
-import DetailsNavigation from "../src/Details/Navigation/DetailsNavigation"
-import { i18n } from "../src/utils/localizations"
-import BottomNavigation from "./BottomNavigation"
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useColorScheme } from "nativewind";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import DetailsNavigation from "../src/Details/Navigation/DetailsNavigation";
+import Image360Screen from "../src/Image360/Image360Screen";
+import { i18n } from "../src/utils/localizations";
+import BottomNavigation from "./BottomNavigation";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 const NormalNavigation = () => {
-  const { isDark } = useSelector((state) => state.colorMode)
-  const { setColorScheme, colorScheme } = useColorScheme()
-  const { language } = useSelector((state) => state.lang)
+  const { isDark } = useSelector((state) => state.colorMode);
+  const { setColorScheme, colorScheme } = useColorScheme();
+  const { language } = useSelector((state) => state.lang);
   // i18n.enableFallback = true;
   // i18n.locale = "en";
   // useEffect(() => {
@@ -18,12 +19,12 @@ const NormalNavigation = () => {
   // }, [language]);
   useEffect(() => {
     if (isDark) {
-      setColorScheme("dark")
+      setColorScheme("dark");
     }
     if (!isDark) {
-      setColorScheme("light")
+      setColorScheme("light");
     }
-  }, [isDark])
+  }, [isDark]);
   return (
     <Stack.Navigator
       screenOptions={{
@@ -40,8 +41,15 @@ const NormalNavigation = () => {
         //   animationDuration: 100,
         // }}
       />
+      <Stack.Screen
+        name="Image360"
+        component={Image360Screen}
+        options={{
+          orientation: "landscape",
+        }}
+      />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
-export default NormalNavigation
+export default NormalNavigation;
