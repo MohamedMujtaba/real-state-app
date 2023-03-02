@@ -5,12 +5,11 @@ import { i18n } from "../src/utils/localizations";
 import { useEffect } from "react";
 
 const SwitchNavigation = () => {
-  // const { language } = useSelector((state) => state.lang)
+  const { mode } = useSelector((state) => state.auth);
   // i18n.enableFallback = true
   // useEffect(() => {
   //   i18n.locale = language
   // }, [language])
-  const mode = "normal";
   if (mode === "easy") {
     return <AuthNavigation />;
   }

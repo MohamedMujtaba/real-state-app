@@ -1,4 +1,4 @@
-import { I18n } from "i18n-js"
+import { I18n } from "i18n-js";
 
 export const en = {
   location: "Location",
@@ -7,6 +7,7 @@ export const en = {
   apartment: "Apartment",
   hotel: "Hotel",
   nearbyYou: "Nearby you locations",
+  recommendedToYou: "Recommended to you",
   month: "month",
   year: "year",
   forSell: "for sell",
@@ -30,7 +31,7 @@ export const en = {
   activity: "Activity",
   withdrawnFromYourAccount: "Withdrawn from account",
   addedToYourAccount: "Added to account",
-}
+};
 export const ar = {
   location: "الموقع الحالي",
   search: "تبحث عن شئ معين ؟",
@@ -38,6 +39,7 @@ export const ar = {
   apartment: "شقة",
   hotel: "فندق",
   nearbyYou: " عروض بالقرب منك",
+  recommendedToYou: "الموصى بها لك",
   month: "للشهر",
   year: "للسنة",
   forSell: "بيع",
@@ -61,6 +63,6 @@ export const ar = {
   activity: "النشاطات",
   withdrawnFromYourAccount: "تم سحب مبلغ من حسابك",
   addedToYourAccount: "تم أضافة مبلغ الى حسابك",
-}
+};
 
-export const i18n = new I18n({ en, ar })
+export const i18n = new I18n({ en, ar });

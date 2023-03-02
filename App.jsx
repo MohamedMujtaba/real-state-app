@@ -13,6 +13,7 @@ import SwitchNavigation from "./Navigation/SwitchNavigation";
 import { useColorScheme } from "nativewind";
 import { i18n } from "./src/utils/localizations";
 import { useEffect } from "react";
+import { StatusBar } from "expo-status-bar";
 
 I18nManager.forceRTL(false);
 I18nManager.allowRTL(false);
@@ -41,6 +42,10 @@ const StatfullApp = () => {
   }, [language]);
   return (
     <SafeAreaProvider>
+      <StatusBar
+        // translucent
+        style={colorScheme === "dark" ? "light" : "dark"}
+      />
       <NavigationContainer
         theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
       >

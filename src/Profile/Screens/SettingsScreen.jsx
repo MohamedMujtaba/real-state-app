@@ -15,20 +15,22 @@ import { i18n } from "../../utils/localizations";
 import LangBottomSheet from "../../components/LangBottomSheet";
 import { useRef } from "react";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { logout } from "../../../Redux/authSlice";
 
 const SettingsScreen = () => {
   const bottomSheetRef = useRef(null);
   const { height } = Dimensions.get("window");
   const { language } = useSelector((state) => state.lang);
+  const dispatch = useDispatch();
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <BottomSheetModalProvider>
         <SafeAreaView
-          className="flex-1 bg-white dark:bg-brand-dark "
+          className="flex-1 bg-white dark:bg-brand-dark"
           style={{ height }}
         >
           <Header />
-          <ScrollView className="p-4">
+          <ScrollView className="pl-4 pr-4 pb-6 flex-1">
             <Title title={i18n.t("preferences")} />
             <Line onPress={() => bottomSheetRef.current.snapToIndex(0)}>
               <Text className="text-base font-semibold dark:text-white">
@@ -80,7 +82,6 @@ const SettingsScreen = () => {
               </View>
             </Line>
             <Divider px={0} py="1" />
-
             <Line>
               <Text className="text-base font-semibold dark:text-white">
                 {i18n.t("termsAndConditions")}
@@ -91,6 +92,23 @@ const SettingsScreen = () => {
                   size={24}
                   color="#2972ff"
                 />
+              </View>
+            </Line>
+            {/* FIXME: */}
+            <Title title={"Actions"} />
+            <Line
+              onPress={() => {
+                dispatch(logout());
+              }}
+            >
+              <Text className="text-base font-semibold dark:text-white">
+                {/* FIXME: */}
+                Logout
+              </Text>
+              <View className="flex-row items-center justify-between">
+                {/* FIXME: hook with the state */}
+
+                <MaterialIcons name="logout" size={24} color="#2972ff" />
               </View>
             </Line>
           </ScrollView>

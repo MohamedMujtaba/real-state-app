@@ -1,10 +1,11 @@
-import { View, ScrollView } from "react-native"
-import UserLocationComponent from "../../components/UserLocationComponent"
-import SimpleSearchComponent from "../../components/SimpleSearchComponent"
-import SelectTypeSimple from "../../components/SelectTypeSimple"
-import SmallList from "../../components/SmallList"
-import ItemMedium from "../../components/ItemMedium"
-import ItemLarge from "../../components/ItemLarge"
+import { View, ScrollView } from "react-native";
+import UserLocationComponent from "../../components/UserLocationComponent";
+import SimpleSearchComponent from "../../components/SimpleSearchComponent";
+import SelectTypeSimple from "../../components/SelectTypeSimple";
+import SmallList from "../../components/SmallList";
+import ItemMedium from "../../components/ItemMedium";
+import ItemLarge from "../../components/ItemLarge";
+import { i18n } from "../../utils/localizations";
 
 const data = [
   {
@@ -107,7 +108,7 @@ const data = [
     ],
     price: 120,
   },
-]
+];
 const HomeScreen = () => {
   return (
     <ScrollView className="flex-1  dark:bg-brand-dark  ">
@@ -116,15 +117,16 @@ const HomeScreen = () => {
         {/* <ColorSchemaToggle /> */}
       </View>
       <SimpleSearchComponent />
-      <SelectTypeSimple />
+      {/* <SelectTypeSimple /> */}
       <SmallList ItemComponent={<ItemMedium mr={20} />} data={data} />
       <SmallList
         ItemComponent={<ItemLarge mr={20} />}
         data={data}
-        pagingEnabled={true}
+        // pagingEnabled={true}
+        title={i18n.t("recommendedToYou")}
       />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

@@ -1,21 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  mode: "normal",
+  mode: "easy",
 };
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    changeMode: (state) => {
-      if (state.mode === "normal") {
-        state.mode = "easy";
-      } else {
-        state.mode = "normal";
-      }
+    login: (state, action) => {
+      state.mode = "normal";
+    },
+    logout: (state) => {
+      state.mode = "easy";
     },
   },
 });
 
-export const { changeMode } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;

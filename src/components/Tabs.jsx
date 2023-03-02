@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity, ScrollView } from "react-native"
-import React, { useEffect } from "react"
-import { useState } from "react"
-import ItemSmall from "./ItemSmall"
-import { useColorScheme } from "nativewind"
-import { i18n } from "../utils/localizations"
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import ItemSmall from "./ItemSmall";
+import { useColorScheme } from "nativewind";
+import { i18n } from "../utils/localizations";
 import Animated, {
   FadeIn,
   FadeInDown,
@@ -11,7 +11,8 @@ import Animated, {
   FadeOut,
   Layout,
   Transition,
-} from "react-native-reanimated"
+} from "react-native-reanimated";
+import PagerView from "react-native-pager-view";
 const Tabs = ({
   titles = ["red", "green", "blue"],
   titleWidth = "30%",
@@ -33,7 +34,7 @@ const Tabs = ({
     />,
   ],
 }) => {
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(0);
 
   return (
     <Animated.View className="w-full px-4">
@@ -51,11 +52,11 @@ const Tabs = ({
         )}
       </Animated.View>
     </Animated.View>
-  )
-}
+  );
+};
 
 const Buttons = ({ selected, setSelected, titles, titleWidth }) => {
-  const { colorScheme } = useColorScheme()
+  const { colorScheme } = useColorScheme();
   return (
     <View className="w-full h-[50] bg-[#F8FAFC] dark:bg-item-dark rounded-md flex-row items-center justify-evenly">
       {titles.map((title, index) => {
@@ -88,7 +89,7 @@ const Buttons = ({ selected, setSelected, titles, titleWidth }) => {
               {title}
             </Text>
           </TouchableOpacity>
-        )
+        );
       })}
       {/* <TouchableOpacity
         onPress={() => setSelected(0)}
@@ -143,6 +144,6 @@ const Buttons = ({ selected, setSelected, titles, titleWidth }) => {
         </Text>
       </TouchableOpacity> */}
     </View>
-  )
-}
-export default Tabs
+  );
+};
+export default Tabs;

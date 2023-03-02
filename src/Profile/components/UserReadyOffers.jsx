@@ -5,7 +5,7 @@ import ItemSmall from "../../components/ItemSmall";
 const UserReadyOffers = () => {
   return (
     <Animated.View
-      className="w-full"
+      className="w-full flex-1"
       entering={FadeIn.delay(20)}
       exiting={FadeOut}
     >
